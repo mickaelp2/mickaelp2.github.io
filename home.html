@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Dianita❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+   
+</head>
+<body>
+    <!-- Pantalla de bienvenida -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+            <h1>❤️ Para la Niña De Mis Ojos ❤️</h1>
+            <p>Un regalo con mucho amor para la persona que mas quiero en este mundo </p>
+            <button class="welcome-btn" id="startBtn">
+                <i class="fas fa-heart"></i>
+                <span>Comenzar</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="/public/icon/hablar.png" class="logo">❤️MI PRINCESA PRECIOSA❤️</a>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1><i class="fa-solid fa-heart"></i>Una Pequeña galeria de la persona que mas linda preciosa hermosa divina que mas amo en el universo</h1>
+            <p class="hero-subtitle">Cada imagen es un pequeño recuerdo de lo mucho que te amo y te adoro mi princesa</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="gallery-grid" id="gallery">
+            <!-- Las imágenes se cargarán aquí dinámicamente -->
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <img src="" alt="Imagen ampliada" id="lightbox-img">
+            <div class="lightbox-counter" id="lightbox-counter">1 / 56</div>
+        </div>
+    </div>
+
+    <!-- Control de música -->
+    <button class="music-control" id="musicControl" title="Reproducir/Pausar música">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Con todo mi amor y mi corazon  ❤️</p>
+            <p style="margin-top: 1rem;">Para la persona más importante de mi corazon </p>
+        </div>
+    </footer>
+
+    <!-- Audio Element -->
+    <audio id="backgroundMusic" loop>
+        <source src="public/music/Love For You - LOVELI LORI.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Referencias
+        const welcomeScreen = document.getElementById('welcomeScreen');
+        const startBtn = document.getElementById('startBtn');
+        const gallery = document.getElementById('gallery');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const musicControl = document.getElementById('musicControl');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        
+        let currentIndex = 0;
+        let galleryItems = [];
+
+        // Cargar contenido dinámicamente
+        function loadGallery() {
+            const images = [];
+            const videos = [];
+
+            // Generar nombres de imágenes (46 imágenes)
+            for (let i = 1; i <= 46; i++) {
+                images.push(`Public/IMG/IMG${i}.jpg`);
+            }
+
+            // Generar nombres de videos (10 videos)
+            for (let i = 1; i <= 10; i++) {
+                videos.push(`Public/VID/VID${i}.mp4`);
+            }
+
+            // Mezclar imágenes y videos
+            const allMedia = [...images, ...videos].sort(() => Math.random() - 0.5);
+
+            // Crear elementos del gallery
+            allMedia.forEach((src, index) => {
+                const item = document.createElement('div');
+                const isVideo = src.includes('.mp4');
+                
+                if (isVideo) {
+                    item.className = 'gallery-item gallery-item-video';
+                    item.innerHTML = `
+                        <video autoplay muted loop playsinline>
+                            <source src="${src}" type="video/mp4">
+                        </video>
+                    `;
+                } else {
+                    item.className = 'gallery-item';
+                    item.innerHTML = `<img src="${src}" alt="Momento ${index + 1}">`;
+                }
+                
+                gallery.appendChild(item);
+            });
+
+            galleryItems = document.querySelectorAll('.gallery-item');
+            setupLightbox();
+        }
+
+        // Configurar lightbox
+        function setupLightbox() {
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    currentIndex = index;
+                    showLightboxContent(currentIndex);
+                    updateCounter();
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+        }
+
+        // Mostrar contenido en lightbox
+        function showLightboxContent(index) {
+            const item = galleryItems[index];
+            const video = item.querySelector('video');
+            const img = item.querySelector('img');
+            
+            if (video) {
+                const videoSrc = video.querySelector('source').src;
+                lightboxImg.style.display = 'none';
+                
+                let lightboxVideo = document.getElementById('lightbox-video');
+                if (!lightboxVideo) {
+                    lightboxVideo = document.createElement('video');
+                    lightboxVideo.id = 'lightbox-video';
+                    lightboxVideo.controls = true;
+                    lightboxVideo.autoplay = true;
+                    lightboxVideo.style.width = '100%';
+                    lightboxVideo.style.height = '100%';
+                    lightboxVideo.style.maxHeight = '85vh';
+                    lightboxVideo.style.objectFit = 'contain';
+                    lightboxVideo.style.borderRadius = '10px';
+                    document.querySelector('.lightbox-content').appendChild(lightboxVideo);
+                }
+                
+                lightboxVideo.innerHTML = `<source src="${videoSrc}" type="video/mp4">`;
+                lightboxVideo.load();
+                lightboxVideo.style.display = 'block';
+            } else if (img) {
+                const imgSrc = img.src;
+                lightboxImg.src = imgSrc;
+                lightboxImg.style.display = 'block';
+                
+                const lightboxVideo = document.getElementById('lightbox-video');
+                if (lightboxVideo) {
+                    lightboxVideo.style.display = 'none';
+                    lightboxVideo.pause();
+                }
+            }
+        }
+
+        // Actualizar contador
+        function updateCounter() {
+            lightboxCounter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+        }
+
+        // Botón de bienvenida
+        startBtn.addEventListener('click', () => {
+            welcomeScreen.classList.add('hidden');
+            backgroundMusic.play();
+            musicControl.classList.add('playing');
+            loadGallery();
+        });
+
+        // Control de música
+        musicControl.addEventListener('click', () => {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                musicControl.classList.add('playing');
+                musicControl.innerHTML = '<i class="fas fa-music"></i>';
+            } else {
+                backgroundMusic.pause();
+                musicControl.classList.remove('playing');
+                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+        });
+
+        // Cerrar lightbox
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            const lightboxVideo = document.getElementById('lightbox-video');
+            if (lightboxVideo) {
+                lightboxVideo.pause();
+            }
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                const lightboxVideo = document.getElementById('lightbox-video');
+                if (lightboxVideo) {
+                    lightboxVideo.pause();
+                }
+            }
+        });
+
+        // Navegación lightbox
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            showLightboxContent(currentIndex);
+            updateCounter();
+        });
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            showLightboxContent(currentIndex);
+            updateCounter();
+        });
+
+        // Navegación con teclado
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    const lightboxVideo = document.getElementById('lightbox-video');
+                    if (lightboxVideo) {
+                        lightboxVideo.pause();
+                    }
+                } else if (e.key === 'ArrowLeft') {
+                    lightboxPrev.click();
+                } else if (e.key === 'ArrowRight') {
+                    lightboxNext.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
