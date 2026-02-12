@@ -6,41 +6,237 @@
     <title>Para Dianita❤️</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="./public/icon/hablar.png">
-   
 </head>
 <body>
+    <!-- Corazones flotantes de fondo -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
     <!-- Pantalla de bienvenida -->
     <div class="welcome-screen" id="welcomeScreen">
         <div class="welcome-content">
+            <div class="welcome-flowers">
+                <span class="flower-emoji">🌹</span>
+                <span class="flower-emoji">💐</span>
+                <span class="flower-emoji">🌺</span>
+            </div>
             <h1>❤️ Para la Niña De Mis Ojos ❤️</h1>
-            <p>Un regalo con mucho amor para la persona que mas quiero en este mundo </p>
+            <p>Un regalo con mucho amor para la persona que mas quiero en este mundo</p>
+            <p class="valentine-special">✨ Especial San Valentín 2025 ✨</p>
             <button class="welcome-btn" id="startBtn">
                 <i class="fas fa-heart"></i>
                 <span>Comenzar</span>
             </button>
+            <div class="welcome-character">
+                <div class="cute-bear">
+                    <div class="bear-body">🐻</div>
+                    <div class="bear-flowers">💐</div>
+                </div>
+            </div>
         </div>
     </div>
-
     <!-- Header -->
     <header>
         <nav>
-            <a href="./public/icon/hablar.png" class="logo">❤️MI PRINCESA PRECIOSA❤️</a>
+            <a href="" class="logo">❤️ MI PRINCESA PRECIOSA ❤️</a>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" title="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </nav>
     </header>
-
     <!-- Hero Banner -->
     <section class="hero-banner">
         <div class="hero-content">
-            <h1><i class="fa-solid fa-heart"></i>Una Pequeña galeria de la persona que mas linda preciosa hermosa divina que mas amo en el universo</h1>
+            <h1><i class="fa-solid fa-heart"></i> Una Pequeña galeria de la persona mas linda preciosa hermosa divina que mas amo en el universo</h1>
             <p class="hero-subtitle">Cada imagen es un pequeño recuerdo de lo mucho que te amo y te adoro mi princesa</p>
+            
+            <!-- Navegación a secciones -->
+            <div class="hero-nav">
+                <a href="#valentine" class="hero-link valentine-link"><i class="fas fa-heart-circle-bolt"></i> San Valentín</a>
+                <a href="#gallery" class="hero-link"><i class="fas fa-images"></i> Galería</a>
+                <a href="#counter" class="hero-link"><i class="fas fa-clock"></i> Nuestro Tiempo</a>
+                <a href="#reasons" class="hero-link"><i class="fas fa-heart"></i> Por Qué Te Amo</a>
+                <a href="#letters" class="hero-link"><i class="fas fa-envelope"></i> Cartas de Amor</a>
+                <a href="#quiz" class="hero-link"><i class="fas fa-gamepad"></i> Juego</a>
+            </div>
+        </div>
+    </section>
+    <!-- Sección Especial San Valentín -->
+    <section class="valentine-section" id="valentine">
+        <div class="section-container">
+            <!-- Decoración superior -->
+            <div class="valentine-decoration top">
+                <span class="deco-item">🌹</span>
+                <span class="deco-item">💕</span>
+                <span class="deco-item">🌺</span>
+                <span class="deco-item">💐</span>
+                <span class="deco-item">🌹</span>
+            </div>
+
+            <h2 class="section-title valentine-title">💝 Nuestro Primer San Valentín Juntos 💝</h2>
+            <p class="section-subtitle">14 de Febrero de 2025 - Un día especial para celebrar nuestro amor</p>
+            
+            <div class="valentine-content"> 
+                <!-- Mensaje especial -->
+                <div class="valentine-message">
+                    <div class="message-card">
+                        <h3>💌 Para Mi Amor en Este Día Especial</h3>
+                        <p>Este es nuestro primer San Valentín juntos, y quiero que sea inolvidable. Cada momento a tu lado es un regalo, pero hoy quiero celebrar de manera especial el amor tan hermoso que compartimos.</p>
+                        <p>Eres mi persona favorita, mi mejor amiga, mi confidente, y el amor de mi vida. Gracias por existir y por elegirme cada día.</p>
+                        <p class="message-signature">Con todo mi amor, hoy y siempre Mickael ❤️</p>
+                        
+                        <!-- Personaje pequeño en el mensaje -->
+                        <div class="message-cupid">
+                            <span class="cupid">😇💘</span>
+                        </div>
+                    </div>
+                </div>
+            <!-- Decoración inferior con personajes -->
+            <div class="valentine-decoration bottom">
+                <div class="deco-characters">
+                    <span class="mini-character">🐰💐</span>
+                    <span class="mini-character">🐻❤️</span>
+                    <span class="mini-character">🐼🌹</span>
+                    <span class="mini-character">🐨💕</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contador de tiempo juntos -->
+    <section class="counter-section" id="counter">
+        <div class="section-container">
+            <h2 class="section-title">⏰ Nuestro Tiempo Juntos</h2>
+            <p class="section-subtitle">Cada segundo a tu lado es un regalo</p>
+            
+            <div class="counter-grid">
+                <div class="counter-box">
+                    <div class="counter-number" id="years">0</div>
+                    <div class="counter-label">Años</div>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-number" id="months">0</div>
+                    <div class="counter-label">Meses</div>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-number" id="days">0</div>
+                    <div class="counter-label">Días</div>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-number" id="hours">0</div>
+                    <div class="counter-label">Horas</div>
+                </div>
+            </div>
+            
+            <div class="anniversary-date">
+                <p>💕 Desde el <span id="startDate"></span> 💕</p>
+            </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery-section">
-        <div class="gallery-grid" id="gallery">
-            <!-- Las imágenes se cargarán aquí dinámicamente -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-container">
+            <h2 class="section-title">📸 Nuestros Momentos Especiales</h2>
+            <p class="section-subtitle">Cada foto cuenta nuestra historia de amor</p>
+            
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Las imágenes se cargarán aquí dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Razones -->
+    <section class="reasons-section" id="reasons">
+        <div class="section-container">
+            <h2 class="section-title">💖 Razones Por Las Que Te Amo</h2>
+            <p class="section-subtitle">Infinitas razones para amarte cada día más</p>
+            
+            <div class="reasons-grid" id="reasonsGrid">
+                <!-- Las razones se cargarán dinámicamente -->
+            </div>
+            
+            <button class="show-more-btn" id="showMoreReasons">
+                <i class="fas fa-heart"></i> Ver Más Razones
+            </button>
+        </div>
+    </section>
+
+    <!-- Cartas de Amor -->
+    <section class="letters-section" id="letters">
+        <div class="section-container">
+            <h2 class="section-title">💌 Cartas de Amor Para Ti</h2>
+            <p class="section-subtitle">Mensajes escritos desde el corazón</p>
+            
+            <div class="letters-grid">
+                <div class="letter-card" data-letter="1">
+                    <div class="letter-front">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Carta #1</h3>
+                        <p>A mi amor eterno</p>
+                        <button class="open-letter-btn">Abrir Carta</button>
+                    </div>
+                </div>
+                
+                <div class="letter-card" data-letter="2">
+                    <div class="letter-front">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Carta #2</h3>
+                        <p>Mi razón de ser</p>
+                        <button class="open-letter-btn">Abrir Carta</button>
+                    </div>
+                </div>
+                
+                <div class="letter-card" data-letter="3">
+                    <div class="letter-front">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Carta #3</h3>
+                        <p>Eres mi todo</p>
+                        <button class="open-letter-btn">Abrir Carta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section" id="quiz">
+        <div class="section-container">
+            <h2 class="section-title">🎮 ¿Qué Tanto Me Conoces?</h2>
+            <p class="section-subtitle">Un juego divertido sobre nuestra relación</p>
+            
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-start" id="quizStart">
+                    <div class="quiz-intro">
+                        <i class="fas fa-heart-circle-check"></i>
+                        <h3>¡Vamos a jugar!</h3>
+                        <p>Responde estas preguntas sobre nosotros y descubre tu puntuación</p>
+                        <button class="quiz-btn" id="startQuizBtn">Comenzar Quiz</button>
+                    </div>
+                </div>
+                
+                <div class="quiz-questions" id="quizQuestions" style="display: none;">
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-bar" id="quizProgressBar"></div>
+                    </div>
+                    <div class="question-counter">
+                        Pregunta <span id="currentQuestion">1</span> de <span id="totalQuestions">10</span>
+                    </div>
+                    <div class="quiz-question" id="questionContainer"></div>
+                    <div class="quiz-options" id="optionsContainer"></div>
+                </div>
+                
+                <div class="quiz-result" id="quizResult" style="display: none;">
+                    <div class="result-content">
+                        <i class="fas fa-trophy"></i>
+                        <h3 id="resultTitle"></h3>
+                        <p class="result-score">Puntuación: <span id="finalScore">0</span>/10</p>
+                        <p id="resultMessage"></p>
+                        <button class="quiz-btn" id="retryQuizBtn">Jugar de Nuevo</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -57,7 +253,18 @@
                 <i class="fas fa-chevron-right"></i>
             </button>
             <img src="" alt="Imagen ampliada" id="lightbox-img">
+            <div class="lightbox-description" id="lightbox-description"></div>
             <div class="lightbox-counter" id="lightbox-counter">1 / 56</div>
+        </div>
+    </div>
+
+    <!-- Modal de Cartas -->
+    <div class="letter-modal" id="letterModal">
+        <div class="letter-modal-content">
+            <button class="letter-modal-close" id="letterModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="letter-body" id="letterBody"></div>
         </div>
     </div>
 
@@ -66,217 +273,46 @@
         <i class="fas fa-music"></i>
     </button>
 
+    <!-- Sección final con personajes -->
+    <section class="final-characters">
+        <div class="characters-container">
+            <div class="character-left animate-bounce">
+                <span class="char-emoji">🐻</span>
+                <span class="char-item">💐</span>
+            </div>
+            <div class="final-message">
+                <h3>Gracias por ser parte de mi vida ❤️</h3>
+                <p>Este sitio fue hecho con todo mi amor para ti</p>
+            </div>
+            <div class="character-right animate-bounce">
+                <span class="char-emoji">🐰</span>
+                <span class="char-item">🌹</span>
+            </div>
+        </div>
+        <div class="floating-items">
+            <span class="float-item">💕</span>
+            <span class="float-item">🌸</span>
+            <span class="float-item">💖</span>
+            <span class="float-item">🌺</span>
+            <span class="float-item">💝</span>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p>&copy; 2025 Con todo mi amor y mi corazon  ❤️</p>
-            <p style="margin-top: 1rem;">Para la persona más importante de mi corazon </p>
+            <p>&copy; 2025 Con todo mi amor y mi corazon ❤️</p>
+            <p style="margin-top: 1rem;">Para la persona más importante de mi corazon</p>
         </div>
     </footer>
 
     <!-- Audio Element -->
     <audio id="backgroundMusic" loop>
-        <source src="./public/music/Love For You - LOVELI LORI.mp3" type="audio/mpeg">
+        <source src="public/music/Love For You - LOVELI LORI.mp3" type="audio/mpeg">
     </audio>
 
-    <script>
-        // Referencias
-        const welcomeScreen = document.getElementById('welcomeScreen');
-        const startBtn = document.getElementById('startBtn');
-        const gallery = document.getElementById('gallery');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxClose = document.getElementById('lightbox-close');
-        const lightboxPrev = document.getElementById('lightbox-prev');
-        const lightboxNext = document.getElementById('lightbox-next');
-        const lightboxCounter = document.getElementById('lightbox-counter');
-        const musicControl = document.getElementById('musicControl');
-        const backgroundMusic = document.getElementById('backgroundMusic');
-        
-        let currentIndex = 0;
-        let galleryItems = [];
-
-        // Cargar contenido dinámicamente
-        function loadGallery() {
-            const images = [];
-            const videos = [];
-
-            // Generar nombres de imágenes (46 imágenes)
-            for (let i = 1; i <= 46; i++) {
-                images.push(`../public/IMG/IMG${i}.jpg`);
-            }
-
-            // Generar nombres de videos (10 videos)
-            for (let i = 1; i <= 10; i++) {
-                videos.push(`../public/VID/VID${i}.mp4`);
-            }
-
-            // Mezclar imágenes y videos
-            const allMedia = [...images, ...videos].sort(() => Math.random() - 0.5);
-
-            // Crear elementos del gallery
-            allMedia.forEach((src, index) => {
-                const item = document.createElement('div');
-                const isVideo = src.includes('.mp4');
-                
-                if (isVideo) {
-                    item.className = 'gallery-item gallery-item-video';
-                    item.innerHTML = `
-                        <video autoplay muted loop playsinline>
-                            <source src="${src}" type="video/mp4">
-                        </video>
-                    `;
-                } else {
-                    item.className = 'gallery-item';
-                    item.innerHTML = `<img src="${src}" alt="Momento ${index + 1}">`;
-                }
-                
-                gallery.appendChild(item);
-            });
-
-            galleryItems = document.querySelectorAll('.gallery-item');
-            setupLightbox();
-        }
-
-        // Configurar lightbox
-        function setupLightbox() {
-            galleryItems.forEach((item, index) => {
-                item.addEventListener('click', () => {
-                    currentIndex = index;
-                    showLightboxContent(currentIndex);
-                    updateCounter();
-                    lightbox.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-        }
-
-        // Mostrar contenido en lightbox
-        function showLightboxContent(index) {
-            const item = galleryItems[index];
-            const video = item.querySelector('video');
-            const img = item.querySelector('img');
-            
-            if (video) {
-                const videoSrc = video.querySelector('source').src;
-                lightboxImg.style.display = 'none';
-                
-                let lightboxVideo = document.getElementById('lightbox-video');
-                if (!lightboxVideo) {
-                    lightboxVideo = document.createElement('video');
-                    lightboxVideo.id = 'lightbox-video';
-                    lightboxVideo.controls = true;
-                    lightboxVideo.autoplay = true;
-                    lightboxVideo.style.width = '100%';
-                    lightboxVideo.style.height = '100%';
-                    lightboxVideo.style.maxHeight = '85vh';
-                    lightboxVideo.style.objectFit = 'contain';
-                    lightboxVideo.style.borderRadius = '10px';
-                    document.querySelector('.lightbox-content').appendChild(lightboxVideo);
-                }
-                
-                lightboxVideo.innerHTML = `<source src="${videoSrc}" type="video/mp4">`;
-                lightboxVideo.load();
-                lightboxVideo.style.display = 'block';
-            } else if (img) {
-                const imgSrc = img.src;
-                lightboxImg.src = imgSrc;
-                lightboxImg.style.display = 'block';
-                
-                const lightboxVideo = document.getElementById('lightbox-video');
-                if (lightboxVideo) {
-                    lightboxVideo.style.display = 'none';
-                    lightboxVideo.pause();
-                }
-            }
-        }
-
-        // Actualizar contador
-        function updateCounter() {
-            lightboxCounter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
-        }
-
-        // Botón de bienvenida
-        startBtn.addEventListener('click', () => {
-            welcomeScreen.classList.add('hidden');
-            backgroundMusic.play();
-            musicControl.classList.add('playing');
-            loadGallery();
-        });
-
-        // Control de música
-        musicControl.addEventListener('click', () => {
-            if (backgroundMusic.paused) {
-                backgroundMusic.play();
-                musicControl.classList.add('playing');
-                musicControl.innerHTML = '<i class="fas fa-music"></i>';
-            } else {
-                backgroundMusic.pause();
-                musicControl.classList.remove('playing');
-                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
-            }
-        });
-
-        // Cerrar lightbox
-        lightboxClose.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            const lightboxVideo = document.getElementById('lightbox-video');
-            if (lightboxVideo) {
-                lightboxVideo.pause();
-            }
-        });
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                const lightboxVideo = document.getElementById('lightbox-video');
-                if (lightboxVideo) {
-                    lightboxVideo.pause();
-                }
-            }
-        });
-
-        // Navegación lightbox
-        lightboxPrev.addEventListener('click', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-            showLightboxContent(currentIndex);
-            updateCounter();
-        });
-
-        lightboxNext.addEventListener('click', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            currentIndex = (currentIndex + 1) % galleryItems.length;
-            showLightboxContent(currentIndex);
-            updateCounter();
-        });
-
-        // Navegación con teclado
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.classList.contains('active')) {
-                if (e.key === 'Escape') {
-                    lightbox.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                    const lightboxVideo = document.getElementById('lightbox-video');
-                    if (lightboxVideo) {
-                        lightboxVideo.pause();
-                    }
-                } else if (e.key === 'ArrowLeft') {
-                    lightboxPrev.click();
-                } else if (e.key === 'ArrowRight') {
-                    lightboxNext.click();
-                }
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
-
-
 
 
