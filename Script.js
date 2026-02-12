@@ -219,11 +219,11 @@ function loadGallery() {
     const videos = [];
 
     for (let i = 1; i <= 46; i++) {
-        images.push(`/IMG/IMG${i}.jpg`);
+        images.push(`IMG/IMG${i}.jpg`);
     }
 
     for (let i = 1; i <= 10; i++) {
-        videos.push(`/VID/VID${i}.mp4`);
+        videos.push(`VID/VID${i}.mp4`);
     }
 
     const allMedia = [...images, ...videos].sort(() => Math.random() - 0.5);
@@ -540,4 +540,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 
 });
+
 
